@@ -13,7 +13,7 @@ import {
 
 
 const buttonStyles =
-  "flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#3B82F6] text-[#232325] font-semibold hover:bg-[#9FE870] transition-colors duration-300 shadow-lg";
+  "group flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#3B82F6] text-[#232325] font-semibold hover:bg-[#9FE870] transition-colors duration-300 shadow-lg cursor-pointer";
 
 export default function Inicio({onEnter}) {
     const { ref, inView } = useInView({ threshold: 0.3 });
@@ -54,22 +54,22 @@ export default function Inicio({onEnter}) {
         >
         <div className="flex justify-center">
             <ScrollLink to="about" smooth={true} duration={800} className={buttonStyles}>
-                <UserIcon color="#9FE870" />
+                <UserIcon className="text-[#9FE870] group-hover:text-[#3B82F6] transition-colors duration-300" />
             </ScrollLink>
         </div>
         <div className="flex justify-center">
             <ScrollLink to="projects" smooth={true} duration={800} className={buttonStyles}>
-                 <BriefcaseIcon color="#9FE870" />
+                 <BriefcaseIcon className="text-[#9FE870] group-hover:text-[#3B82F6] transition-colors duration-300" />
             </ScrollLink>
         </div>
         <div className="flex justify-center">
             <ScrollLink to="skills" smooth={true} duration={800} className={buttonStyles}>
-                <WrenchIcon color="#9FE870" />
+                <WrenchIcon className="text-[#9FE870] group-hover:text-[#3B82F6] transition-colors duration-300" />
             </ScrollLink>
         </div>
         <div className="flex justify-center">
             <ScrollLink to="contact" smooth={true} duration={800} className={buttonStyles}>
-                <MessageCircleIcon color="#9FE870" />
+                <MessageCircleIcon className="text-[#9FE870] group-hover:text-[#3B82F6] transition-colors duration-300" />
             </ScrollLink>
         </div>
         <div className="flex justify-center">

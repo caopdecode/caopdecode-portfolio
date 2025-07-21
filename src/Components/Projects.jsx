@@ -54,7 +54,7 @@ export default function Projects({ onEnter }) {
       viewport={{ once: false, amount: 0.3 }}
     >
       <motion.h2
-        className="text-4xl font-bold text-[#D6D6D6] mb-8"
+        className="text-5xl font-bold text-[#D6D6D6] mb-10 ml-25"
         initial={{ x: -50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1 }}
@@ -63,7 +63,7 @@ export default function Projects({ onEnter }) {
       </motion.h2>
 
       <motion.div
-        className="flex gap-6 overflow-x-auto scrollbar-hide"
+        className="flex gap-6 overflow-x-auto scrollbar-hide justify-center"
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}

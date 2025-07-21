@@ -6,7 +6,7 @@ import Inicio from './Components/Inicio'
 import About from './Components/About'
 import Projects from './Components/Projects.jsx'
 import Skills from './Components/Skills.jsx'
-//import Contact from './Components/Contact.jsx'
+import Contact from './Components/Contact.jsx'
 //    <Projects onEnter={() => setActiveSection("projects")} />
 //    <Skills onEnter={() => setActiveSection("skills")} />
 //    <Contact onEnter={() => setActiveSection("contact")} />
@@ -23,7 +23,7 @@ function App() {
       <About onEnter={() => setActiveSection("about")} />
       <Projects onEnter={() => setActiveSection("projects")} />
       <Skills onEnter={() => setActiveSection("skills")} />
-      {/* <Contact onEnter={() => setActiveSection("contact")} /> */}
+      <Contact onEnter={() => setActiveSection("contact")} />
       
     </main>
   )

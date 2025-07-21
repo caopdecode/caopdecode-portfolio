@@ -31,7 +31,7 @@ export default function About({onEnter}) {
             whileInView={{ x: 0, opacity: 1 }}
             exit={{ x: -100, opacity: 0 }}
             transition={{ duration: 1 }}
-            viewport={{ once: true }}
+            viewport={{once: false, amount: 0.3}}
             >
             <img
                 src={CamiloImg} // asegúrate de que esté en la carpeta public
@@ -46,10 +46,10 @@ export default function About({onEnter}) {
             whileInView={{ x: 0, opacity: 1 }}
             exit={{ x: 100, opacity: 0 }}
             transition={{ duration: 1 }}
-            viewport={{ once: true }}
+            viewport={{once: false, amount: 0.3}}
             className="flex flex-col justify-center"
             >
-            <h2 className="text-4xl font-bold text-[#3B82F6] mb-6">ABOUT ME</h2>
+            <h2 className="text-5xl font-bold text-[#3B82F6] mb-6">ABOUT ME</h2>
             <div className="bg-[#D6D6D6] text-[#174FA6] rounded-[20px] p-6 text-base md:text-lg shadow-lg">
                 <p className="mb-4">
                 I'm a final-year Multimedia Engineering student with a strong

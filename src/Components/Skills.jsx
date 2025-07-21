@@ -42,11 +42,11 @@ export default function Skills({ onEnter }) {
       viewport={{ once: false, amount: 0.3 }}
     >
       <motion.h2
-        className="text-5xl font-bold mb-10 text-[#D6D6D6]"
+        className="text-5xl font-bold mb-10 text-[#D6D6D6] self-end mr-25"
         initial={{ y: -50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        viewport={{once: false, amount: 0.3}}
       >
         SKILLS
       </motion.h2>
@@ -56,12 +56,12 @@ export default function Skills({ onEnter }) {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        viewport={{ once: true }}
+        viewport={{once: false, amount: 0.3}}
       >
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            className="w-24 h-24 bg-[#D6D6D6] text-center rounded-xl flex flex-col items-center justify-center cursor-pointer shadow-lg hover:scale-105 transition-transform"
+            className="w-45 h-45 bg-[#D6D6D6] text-center rounded-xl flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
