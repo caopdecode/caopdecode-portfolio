@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const gradients = {
   inicio: { from: "#232325", to: "#4C4C4C", direction: "to-br" },
@@ -8,22 +8,42 @@ const gradients = {
   contact: { from: "#232325", to: "#4C4C4C", direction: "to-t" },
 };
 
+function getGradientString({ from, to, direction }) {
+  const directions = {
+    "to-br": "135deg",
+    "to-tl": "315deg",
+    "to-bl": "225deg",
+    "to-tr": "45deg",
+    "to-t": "0deg",
+  };
+  return `linear-gradient(${directions[direction] || "135deg"}, ${from}, ${to})`;
+}
+
 export default function BackgroundLayer({ section }) {
   const gradient = gradients[section] || gradients.inicio;
-  const gradientString = `linear-gradient(${gradient.direction}, ${gradient.from}, ${gradient.to})`;
-
-  console.log("Gradiente activo:", gradientString);
+  const gradientString = getGradientString(gradient);
 
   return (
-    <motion.div
-      key={section}
+    <div
       className="fixed inset-0 -z-10 w-full h-full"
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        backgroundImage: gradientString,
-      }}
-      transition={{ duration: 1 }}
-    />
+      style={{ background: "#232325", overflow: "hidden" }} // fallback color
+    >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={section}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          style={{
+            backgroundImage: gradientString,
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        />
+      </AnimatePresence>
+    </div>
   );
 }

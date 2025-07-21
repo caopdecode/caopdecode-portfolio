@@ -4,8 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Inicio from './Components/Inicio'
 import About from './Components/About'
-//import Projects from './Components/Projects.jsx'
-//import Skills from './Components/Skills.jsx'
+import Projects from './Components/Projects.jsx'
+import Skills from './Components/Skills.jsx'
 //import Contact from './Components/Contact.jsx'
 //    <Projects onEnter={() => setActiveSection("projects")} />
 //    <Skills onEnter={() => setActiveSection("skills")} />
@@ -21,6 +21,9 @@ function App() {
 
       <Inicio onEnter={() => setActiveSection("inicio")} />
       <About onEnter={() => setActiveSection("about")} />
+      <Projects onEnter={() => setActiveSection("projects")} />
+      <Skills onEnter={() => setActiveSection("skills")} />
+      {/* <Contact onEnter={() => setActiveSection("contact")} /> */}
       
     </main>
   )
