@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useInView } from "react-intersection-observer";
+import Project1Img from '/ProjectsPics/Project1.jpg';
 
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    description: "Description of project one.",
-    technologies: ["React", "Tailwind", "Framer Motion"],
+    title: "StarSystem",
+    description: "Client management system for an insurance company.",
+    technologies: ["React", "Spring Boot", "AWS", "PostgreSQL"],
     link: "https://example.com/project-one",
-    image: "path/to/image1.jpg", // Reemplazar luego
+    image: "/ProjectsPics/Project1.jpg", // Reemplazar luego
   },
   {
     id: 2,
@@ -72,19 +73,20 @@ export default function Projects({ onEnter }) {
           <div
             key={project.id}
             onClick={() => setSelected(project)}
-            className="relative w-[250px] h-[350px] flex-shrink-0 rounded-xl overflow-hidden cursor-pointer shadow-xl bg-[#D6D6D6]"
+            className="relative w-[250px] h-[350px] flex-shrink-0 rounded-xl overflow-hidden cursor-pointer shadow-xl"
           >
+            <img
+              src={project.image}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-black bg-opacity-50 z-10 flex items-center justify-center">
               <h3 className="text-white text-xl font-bold text-center">
                 {project.title}
               </h3>
             </div>
             {/* Aquí puedes poner la imagen de fondo con CSS */}
-            <img
-              src={project.image}
-              alt={project.title}
-              className="object-cover w-full h-full"
-            />
+            
           </div>
         ))}
       </motion.div>
