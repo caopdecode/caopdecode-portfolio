@@ -8,17 +8,17 @@ const projects = [
   {
     id: 1,
     title: "StarSystem",
-    description: "Client management system for an insurance company.",
+    description: "Client management system for an insurance company. For privacy reasons I can't link to the project but there is a video that shows the functionality.",
     technologies: ["React", "Spring Boot", "AWS", "PostgreSQL"],
     link: "https://example.com/project-one",
     image: "/ProjectsPics/Project1.jpg", // Reemplazar luego
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "Description of project two.",
+    title: "Subscribly",
+    description: "Subscribly is a backend Java application designed to simulate a subscription-based service. Built with Spring Boot, this project applies all SOLID principles in a real-world scenario including user management, plans, subscriptions, payments, and notifications.",
     technologies: ["Java", "Spring Boot"],
-    link: "https://example.com/project-two",
+    link: "https://github.com/caopdecode/Subscribly",
     image: "path/to/image2.jpg",
   },
   {
@@ -80,7 +80,7 @@ export default function Projects({ onEnter }) {
               alt={project.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50 z-10 flex items-center justify-center">
+            <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] z-10 flex items-center justify-center">
               <h3 className="text-white text-xl font-bold text-center">
                 {project.title}
               </h3>
