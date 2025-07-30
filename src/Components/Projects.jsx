@@ -9,9 +9,9 @@ const projects = [
   {
     id: 1,
     title: "StarSystem",
-    description: "Client management system for an insurance company. For privacy reasons I can't link to the project but there is a video that shows the functionality.",
+    description: "Client management system for an insurance company. For privacy reasons I can't link to the project but there are a slides that shows the functionality.",
     technologies: ["React", "Spring Boot", "AWS", "PostgreSQL"],
-    link: "https://example.com/project-one",
+    link: "https://www.canva.com/design/DAGurckeVhc/GivMtM7iVxuz6-1bKvFzqQ/view?utm_content=DAGurckeVhc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6712cad7af",
     image: "/ProjectsPics/Project1.jpg", // Reemplazar luego
   },
   {
