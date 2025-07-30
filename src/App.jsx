@@ -7,24 +7,21 @@ import About from './Components/About'
 import Projects from './Components/Projects.jsx'
 import Skills from './Components/Skills.jsx'
 import Contact from './Components/Contact.jsx'
-//    <Projects onEnter={() => setActiveSection("projects")} />
-//    <Skills onEnter={() => setActiveSection("skills")} />
-//    <Contact onEnter={() => setActiveSection("contact")} />
+// <Projects onEnter={() => setActiveSection("projects")} />
+// <Skills onEnter={() => setActiveSection("skills")} />
+// <Contact onEnter={() => setActiveSection("contact")} />
+// <BackgroundLayer section={activeSection} />
+// const [activeSection, setActiveSection] = useState("inicio");
 import BackgroundLayer from "./Components/BackgroundLayer";
 
 function App() {
-  const [activeSection, setActiveSection] = useState("inicio");
-
   return (
     <main className="overflow-x-hidden">
-      <BackgroundLayer section={activeSection} />
-
-      <Inicio onEnter={() => setActiveSection("inicio")} />
-      <About onEnter={() => setActiveSection("about")} />
-      <Projects onEnter={() => setActiveSection("projects")} />
-      <Skills onEnter={() => setActiveSection("skills")} />
-      <Contact onEnter={() => setActiveSection("contact")} />
-      
+      <Inicio/>
+      <About/>
+      <Projects/>
+      <Skills/>
+      <Contact/>
     </main>
   )
 }

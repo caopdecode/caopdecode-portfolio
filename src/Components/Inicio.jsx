@@ -13,22 +13,23 @@ import {
 
 
 const buttonStyles =
-  "group flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#3B82F6] text-[#232325] font-semibold hover:bg-[#9FE870] transition-colors duration-300 shadow-lg cursor-pointer";
+  "group flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#EA30FF] text-[#232325] font-semibold hover:bg-[#30FF36] transition-colors duration-300 shadow-lg cursor-pointer";
 
 export default function Inicio({onEnter}) {
-    const { ref, inView } = useInView({ threshold: 0.3 });
+    /*const { ref, inView } = useInView({ threshold: 0.3 });
 
     useEffect(() => {
         if (inView) {
     console.log("SECCIÓN EN VISTA");
     onEnter(); // cambia el fondo
   }
-    }, [inView]);
+    }, [inView]); */
 
   return (
     <motion.section
-      ref={ref} 
-      className="h-screen w-full flex flex-col items-center justify-center text-white"
+      //ref={ref} 
+      id="inicio"
+      className="h-screen w-full flex flex-col items-center justify-center text-white bg-[#F2F2F2]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -42,7 +43,7 @@ export default function Inicio({onEnter}) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-8xl font-bold text-[#3B82F6]">CAOPDECODE</h1>
+        <h1 className="text-8xl font-bold text-[#121212]">CAOPDECODE</h1>
       </motion.div>
 
       {/* Botones de navegación */}
@@ -53,27 +54,27 @@ export default function Inicio({onEnter}) {
         transition={{ delay: 0.5, duration: 0.8 }}
         >
         <div className="flex justify-center">
-            <ScrollLink to="about" smooth={true} duration={800} className={buttonStyles}>
-                <UserIcon className="text-[#9FE870] group-hover:text-[#3B82F6] transition-colors duration-300" />
+            <ScrollLink to="about" smooth={true} duration={800} className={buttonStyles} title="About Me">
+                <UserIcon className="text-[#30FF36] group-hover:text-[#EA30FF] transition-colors duration-300" />
             </ScrollLink>
         </div>
         <div className="flex justify-center">
-            <ScrollLink to="projects" smooth={true} duration={800} className={buttonStyles}>
-                 <BriefcaseIcon className="text-[#9FE870] group-hover:text-[#3B82F6] transition-colors duration-300" />
+            <ScrollLink to="projects" smooth={true} duration={800} className={buttonStyles} title="Projects">
+                 <BriefcaseIcon className="text-[#30FF36] group-hover:text-[#EA30FF] transition-colors duration-300" />
             </ScrollLink>
         </div>
         <div className="flex justify-center">
-            <ScrollLink to="skills" smooth={true} duration={800} className={buttonStyles}>
-                <WrenchIcon className="text-[#9FE870] group-hover:text-[#3B82F6] transition-colors duration-300" />
+            <ScrollLink to="skills" smooth={true} duration={800} className={buttonStyles} title="Skills">
+                <WrenchIcon className="text-[#30FF36] group-hover:text-[#EA30FF] transition-colors duration-300" />
             </ScrollLink>
         </div>
         <div className="flex justify-center">
-            <ScrollLink to="contact" smooth={true} duration={800} className={buttonStyles}>
-                <MessageCircleIcon className="text-[#9FE870] group-hover:text-[#3B82F6] transition-colors duration-300" />
+            <ScrollLink to="contact" smooth={true} duration={800} className={buttonStyles} title="Contact">
+                <MessageCircleIcon className="text-[#30FF36] group-hover:text-[#EA30FF] transition-colors duration-300" />
             </ScrollLink>
         </div>
         <div className="flex justify-center">
-            <p className="text-[#D6D6D6] text-3xl font-semibold text-center">
+            <p className="text-[#121212] text-3xl font-semibold text-center">
             Portfolio
             </p>
         </div>

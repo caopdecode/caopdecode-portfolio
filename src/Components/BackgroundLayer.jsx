@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 
 const gradients = {
-  inicio: { from: "#174FA6", to: "#091E40", direction: "to-br" },
-  about: { from: "#174FA6", to: "#091E40", direction: "to-tl" },
-  projects: { from: "#29006f", to: "#801368", direction: "to-bl" },
-  skills: { from: "#29006f", to: "#801368", direction: "to-tr" },
-  contact: { from: "#174FA6", to: "#091E40", direction: "to-t" },
+  inicio: { from: "#F2F2F2", to: "#F2F2F2", direction: "to-br" },
+  about: { from: "#F2F2F2", to: "#F2F2F2", direction: "to-tl" },
+  projects: { from: "#121212", to: "#121212", direction: "to-bl" },
+  skills: { from: "#121212", to: "#121212", direction: "to-tr" },
+  contact: { from: "#F2F2F2", to: "#F2F2F2", direction: "to-t" },
 };
 
 function getGradientString({ from, to, direction }) {
