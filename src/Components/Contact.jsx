@@ -34,13 +34,13 @@ export default function Contact({ onEnter }) {
         viewport={{once: false, amount: 0.3}}
       >
         <h2 className="text-5xl font-bold text-[#121212] mb-6">CONTACT</h2>
-        <p className="text-base text-[#121212] max-w-lg mb-6">
+        <p className="text-sm sm:text-base text-[#121212] max-w-lg mb-6">
           I’m always open to exciting new opportunities and collaborations. <br/>
           Let’s connect and build something impactful together!
         </p>
         <a
           href="mailto:caopdecode@gmail.com"
-          className="bg-[#EA30FF] hover:bg-[#30FF36] hover:text-[#EA30FF] text-[#30FF36] font-semibold px-6 py-3 rounded-xl shadow-lg transition-colors"
+          className="bg-[#EA30FF] hover:bg-[#30FF36] hover:text-[#121212] text-[#121212] font-semibold px-3 py-1 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-1xl shadow-lg transition-colors"
         >
           Contact me → caopdecode.contact@gmail.com
         </a>

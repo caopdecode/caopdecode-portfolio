@@ -8,7 +8,7 @@ export default function BackToTopButton() {
         to="inicio"
         smooth={true}
         duration={800}
-        className="bg-[#EA30FF] hover:bg-[#30FF36] text-[#30FF36] hover:text-[#EA30FF] p-3 rounded-full shadow-lg cursor-pointer transition-colors duration-300 flex items-center justify-center"
+        className="bg-[#EA30FF] hover:bg-[#30FF36] text-[#121212] hover:text-[#121212] p-3 rounded-full shadow-lg cursor-pointer transition-colors duration-300 flex items-center justify-center"
       >
         <ArrowUpIcon className="w-6 h-6" />
       </ScrollLink>

@@ -48,7 +48,7 @@ export default function Projects({ onEnter }) {
       viewport={{ once: false, amount: 0.3 }}
     >
       <motion.h2
-        className="text-5xl font-bold text-[#F2F2F2] mb-10 ml-25"
+        className="text-5xl font-bold text-[#F2F2F2] mb-5 sm:mb-10 sm:ml-25 text-center sm:text-left"
         initial={{ x: -50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1 }}
@@ -57,7 +57,7 @@ export default function Projects({ onEnter }) {
       </motion.h2>
 
       <motion.div
-        className="flex gap-6 overflow-x-auto scrollbar-hide justify-center"
+        className="flex sm:flex-row flex-col sm:overflow-x-auto overflow-y-auto gap-6 justify-center items-center sm:h-auto h-[70vh] sm:scrollbar-hide px-2"
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
@@ -66,7 +66,7 @@ export default function Projects({ onEnter }) {
           <div
             key={project.id}
             onClick={() => setSelected(project)}
-            className="relative w-[250px] h-[350px] flex-shrink-0 rounded-xl overflow-hidden cursor-pointer shadow-xl"
+            className="relative sm:w-[250px] sm:h-[350px] w-[70vw] h-[180px] flex-shrink-0 rounded-xl overflow-hidden cursor-pointer shadow-xl"
           >
             <img
               src={project.image}
@@ -92,7 +92,7 @@ export default function Projects({ onEnter }) {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-[#121212] rounded-2xl p-8 text-[#F2F2F2] max-w-lg w-full relative shadow-xl"
+            className="bg-[#121212] rounded-2xl p-6 sm:p-8 text-[#F2F2F2] w-[90%] sm:max-w-lg relative shadow-xl"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
@@ -106,7 +106,7 @@ export default function Projects({ onEnter }) {
             <h3 className="text-2xl font-bold text-[#EA30FF] mb-4">
               {selected.title}
             </h3>
-            <p className="mb-4">{selected.description}</p>
+            <p className="mb-4 text-justify">{selected.description}</p>
             <p className="mb-2 font-semibold text-[#EA30FF]">Technologies:</p>
             <ul className="mb-4 list-disc list-inside">
               {selected.technologies.map((tech, index) => (

@@ -37,7 +37,7 @@ export default function About({onEnter}) {
             <img
                 src={CamiloImg} // asegúrate de que esté en la carpeta public
                 alt="Foto de Camilo"
-                className="rounded-[25px] w-[300px] md:w-[300px] object-cover"
+                className="rounded-[25px] w-[300px] md:w-[300px] object-cover hidden sm:block"
             />
             </motion.div>
 
@@ -50,7 +50,7 @@ export default function About({onEnter}) {
             viewport={{once: false, amount: 0.3}}
             className="flex flex-col justify-center"
             >
-            <h2 className="text-5xl font-bold text-[#121212] mb-6">ABOUT ME</h2>
+            <h2 className="text-5xl font-bold text-[#121212] mb-6 text-center sm:text-left">ABOUT ME</h2>
             <div className="bg-[#D6D6D6] text-[#121212] rounded-[20px] p-6 text-base md:text-lg shadow-lg">
                 <p className="mb-4">
                 I'm a final-year Multimedia Engineering student with a strong

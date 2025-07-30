@@ -62,7 +62,7 @@ export default function Skills({ onEnter }) {
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            className="w-45 h-45 bg-[#F2F2F2] text-center rounded-xl flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
+            className="w-35 h-20 sm:w-45 sm:h-45 bg-[#F2F2F2] text-center rounded-xl flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
