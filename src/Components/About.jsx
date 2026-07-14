@@ -1,74 +1,66 @@
 import { motion } from "framer-motion";
 import CamiloImg from "../assets/LinkdnProfile-noBg.png";
 import BackToTopButton from "./BackToTopButton";
-import { useInView } from "react-intersection-observer";
-import { useEffect} from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 
-export default function About({onEnter}) {
-  /* const { ref, inView } = useInView({ threshold: 0.3 });
+export default function About() {
+  const { t } = useLanguage();
 
-    useEffect(() => {
-        if (inView) {
-    console.log("SECCIÓN EN VISTA");
-    onEnter(); // cambia el fondo
-  }
-    }, [inView]);*/
-    return(
-        <motion.section
-        //ref={ref} 
-        id="about"
-        className="relative h-screen w-full flex items-center justify-center text-white px-8 bg-[#F2F2F2]"
-        initial={{ opacity: 1 }}
-        whileInView={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{once: false, amount: 0.3}}
+  return (
+    <section
+      id="about"
+      className="relative min-h-screen w-full flex items-center text-paper bg-ink px-6 sm:px-10 md:pl-32 py-24"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 md:gap-16 items-center max-w-5xl w-full mx-auto md:mx-0">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7 }}
+          className="relative hidden sm:block w-[240px] mx-auto md:mx-0"
         >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl w-full">
-            {/* Imagen */}
-            <motion.div
-            className="w-[300px] bg-[#174FA6] rounded-[25px] flex justify-center items-center"
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            exit={{ x: -100, opacity: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{once: false, amount: 0.3}}
-            >
+          <div className="relative rounded-2xl overflow-hidden border border-line">
             <img
-                src={CamiloImg} // asegúrate de que esté en la carpeta public
-                alt="Foto de Camilo"
-                className="rounded-[25px] w-[300px] md:w-[300px] object-cover hidden sm:block"
+              src={CamiloImg}
+              alt={t.about.imageAlt}
+              className="w-full object-cover"
             />
-            </motion.div>
+          </div>
+          <span className="absolute -bottom-2 -right-2 w-4 h-4 rounded-full bg-signal ring-4 ring-ink" />
+        </motion.div>
 
-            {/* Texto */}
-            <motion.div
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            exit={{ x: 100, opacity: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{once: false, amount: 0.3}}
-            className="flex flex-col justify-center"
-            >
-            <h2 className="text-5xl font-bold text-[#121212] mb-6 text-center sm:text-left">ABOUT ME</h2>
-            <div className="bg-[#D6D6D6] text-[#121212] rounded-[20px] p-6 text-base md:text-lg shadow-lg">
-                <p className="mb-4">
-                I'm a final-year Multimedia Engineering student with a strong
-                focus on software development.
-                </p>
-                <p className="mb-4">
-                Over the past two years, I've built real-world applications—like a
-                client management system for an insurance company—using Java,
-                Spring Boot, AWS (S3, RDS), and React.
-                </p>
-                <p>
-                I'm passionate about solving real problems through scalable
-                systems, clean architecture, and better user experiences.
-                </p>
-            </div>
-            </motion.div>
-        </div>
-        <BackToTopButton/>
-        </motion.section>
-    );
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="font-mono text-sm text-signal mb-3">{t.about.eyebrow}</p>
+          <h2 className="font-display font-semibold text-4xl sm:text-5xl text-paper mb-8">
+            {t.about.title}
+          </h2>
+
+          <div className="bg-panel border border-line rounded-2xl p-6 sm:p-8 space-y-4">
+            {t.about.paragraphs.map((p, i) => (
+              <p key={i} className="text-fog text-base leading-relaxed">
+                {p}
+              </p>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-3 mt-6">
+            {t.about.focusAreas.map((area) => (
+              <span
+                key={area}
+                className="font-mono text-xs text-signal border border-signal/30 rounded-full px-3 py-1.5"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+      <BackToTopButton />
+    </section>
+  );
 }

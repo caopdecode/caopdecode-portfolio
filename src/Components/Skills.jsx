@@ -1,81 +1,92 @@
-import { motion} from "framer-motion";
-import BackToTopButton from "./BackToTopButton";
-import { useInView } from "react-intersection-observer";
-import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { FaReact, FaJava, FaPython, FaAws } from "react-icons/fa";
 import {
-  FaReact,
-  FaJava,
-  FaPython,
-  FaPhp,
-  FaAws,
-} from "react-icons/fa";
-import { SiSpringboot, SiPostgresql } from "react-icons/si";
+  SiSpringboot,
+  SiPostgresql,
+  SiTypescript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiNestjs,
+  SiN8N,
+  SiClaude,
+} from "react-icons/si";
+import BackToTopButton from "./BackToTopButton";
+import { useLanguage } from "../i18n/LanguageContext";
+import { SKILL_GROUPS } from "../i18n/content";
 
-const skills = [
-  { name: "React", icon: <FaReact size={40} color="#EA30FF" /> },
-  { name: "Java", icon: <FaJava size={40} color="#EA30FF" /> },
-  { name: "Spring Boot", icon: <SiSpringboot size={40} color="#EA30FF" /> },
-  { name: "PHP", icon: <FaPhp size={40} color="#EA30FF" /> },
-  { name: "Python", icon: <FaPython size={40} color="#EA30FF" /> },
-  { name: "AWS", icon: <FaAws size={40} color="#EA30FF" /> },
-  { name: "PostgreSQL", icon: <SiPostgresql size={40} color="#EA30FF" /> },
-];
+const ICONS = {
+  React: FaReact,
+  TypeScript: SiTypescript,
+  "Next.js": SiNextdotjs,
+  "Node.js": SiNodedotjs,
+  NestJS: SiNestjs,
+  Java: FaJava,
+  "Spring Boot": SiSpringboot,
+  Python: FaPython,
+  PostgreSQL: SiPostgresql,
+  AWS: FaAws,
+  n8n: SiN8N,
+  Claude: SiClaude,
+};
 
-export default function Skills({ onEnter }) {
-  /*const { ref, inView } = useInView({ threshold: 0.3 });
-  
-      useEffect(() => {
-          if (inView) {
-      console.log("SECCIÓN EN VISTA");
-      onEnter(); // cambia el fondo
-    }
-      }, [inView]); */
+export default function Skills() {
+  const { t } = useLanguage();
 
   return (
-    <motion.section
+    <section
       id="skills"
-      //ref={ref}
-      className="relative h-screen w-full flex flex-col items-center justify-center text-white px-6 bg-[#121212]"
-      initial={{ opacity: 1 }}
-      whileInView={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: false, amount: 0.3 }}
+      className="relative min-h-screen w-full flex flex-col justify-center text-paper px-6 sm:px-10 md:pl-32 py-24 bg-ink"
     >
-      <motion.h2
-        className="text-5xl font-bold mb-10 text-[#F2F2F2] self-end mr-25"
-        initial={{ y: -50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{once: false, amount: 0.3}}
-      >
-        SKILLS
-      </motion.h2>
+      <div className="max-w-5xl w-full mx-auto md:mx-0">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-mono text-sm text-signal mb-3"
+        >
+          {t.skills.eyebrow}
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-display font-semibold text-4xl sm:text-5xl text-paper mb-10"
+        >
+          {t.skills.title}
+        </motion.h2>
 
-      <motion.div
-        className="grid grid-cols-2 md:grid-cols-4 gap-6"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{once: false, amount: 0.3}}
-      >
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            className="w-35 h-20 sm:w-45 sm:h-45 bg-[#F2F2F2] text-center rounded-xl flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
-            initial={{ scale: 0.9, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {skill.icon}
-            <p className="text-xs font-semibold text-[#121212] mt-2">
-              {skill.name}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {SKILL_GROUPS.map((group, gi) => (
+            <motion.div
+              key={group.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: gi * 0.08 }}
+              className="bg-panel border border-line rounded-2xl p-6"
+            >
+              <p className="font-mono text-xs text-signal mb-4">
+                {t.skills.groups[group.id]}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {group.icons.map((name) => {
+                  const Icon = ICONS[name];
+                  return (
+                    <span
+                      key={name}
+                      className="flex items-center gap-2 bg-panel-2 border border-line rounded-lg px-3 py-2 text-sm text-paper hover:border-signal/50 transition-colors duration-300"
+                    >
+                      <Icon size={16} className="text-signal shrink-0" />
+                      {name}
+                    </span>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
       <BackToTopButton />
-    </motion.section>
+    </section>
   );
 }

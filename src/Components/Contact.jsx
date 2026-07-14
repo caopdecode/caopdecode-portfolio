@@ -1,83 +1,78 @@
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
-import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import BackToTopButton from "./BackToTopButton";
+import { useLanguage } from "../i18n/LanguageContext";
+import { CONTACT_EMAIL, SOCIALS } from "../i18n/content";
 
-export default function Contact({ onEnter }) {
-  /*const { ref, inView } = useInView({ threshold: 0.3 });
-  
-      useEffect(() => {
-          if (inView) {
-      console.log("SECCIÓN EN VISTA");
-      onEnter(); // cambia el fondo
-    }
-      }, [inView]);*/
+const SOCIAL_ICONS = {
+  github: FaGithub,
+  linkedin: FaLinkedin,
+  x: FaXTwitter,
+};
+
+export default function Contact() {
+  const { t } = useLanguage();
 
   return (
-    <motion.section
+    <section
       id="contact"
-     //ref={ref}
-      className="relative h-screen w-full flex flex-col justify-between text-white bg-[#F2F2F2]"
-      initial={{ opacity: 1 }}
-      whileInView={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: false, amount: 0.3 }}
+      className="relative min-h-screen w-full flex flex-col justify-between text-paper bg-ink"
     >
-      {/* Texto principal */}
-      <motion.div
-        className="flex-1 flex flex-col items-center justify-center px-6 text-center"
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{once: false, amount: 0.3}}
-      >
-        <h2 className="text-5xl font-bold text-[#121212] mb-6">CONTACT</h2>
-        <p className="text-sm sm:text-base text-[#121212] max-w-lg mb-6">
-          I’m always open to exciting new opportunities and collaborations. <br/>
-          Let’s connect and build something impactful together!
-        </p>
-        <a
-          href="mailto:caopdecode@gmail.com"
-          className="bg-[#EA30FF] hover:bg-[#30FF36] hover:text-[#121212] text-[#121212] font-semibold px-3 py-1 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-1xl shadow-lg transition-colors"
+      <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-mono text-sm text-signal mb-3"
         >
-          Contact me → caopdecode.contact@gmail.com
-        </a>
-      </motion.div>
-      <BackToTopButton/>
-      <motion.footer
-        className="bg-[#121212] flex justify-center gap-8 w-full items-center p-5 border-t border-[#121212]"
-        initial={{ opacity: 1 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        viewport={{once: false, amount: 0.3}}
-      >
-        <a
-          href="https://x.com/caopdecode"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#F2F2F2] hover:scale-110 transition-transform"
+          {t.contact.eyebrow}
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-display font-semibold text-4xl sm:text-5xl text-paper mb-6"
         >
-          <FaXTwitter size={28} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/caopdecode"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#F2F2F2] hover:scale-110 transition-transform"
+          {t.contact.title}
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-fog max-w-lg mb-8"
         >
-          <FaLinkedin size={28} />
-        </a>
-        <a
-          href="https://www.instagram.com/caopdecode"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#F2F2F2] hover:scale-110 transition-transform"
+          {t.contact.description}
+        </motion.p>
+        <motion.a
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="inline-flex items-center gap-2 bg-signal hover:bg-paper text-ink font-semibold font-mono text-sm px-6 py-3 rounded-lg transition-colors duration-300"
         >
-          <FaInstagram size={28} />
-        </a>
-      </motion.footer>
-    </motion.section>
+          {t.contact.ctaLabel} {CONTACT_EMAIL}
+        </motion.a>
+      </div>
+      <BackToTopButton />
+      <footer className="flex justify-center gap-8 w-full items-center p-6 border-t border-line">
+        {SOCIALS.map((social) => {
+          const Icon = SOCIAL_ICONS[social.id];
+          return (
+            <a
+              key={social.id}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-fog hover:text-signal hover:scale-110 transition-all duration-300"
+            >
+              <Icon size={24} />
+            </a>
+          );
+        })}
+      </footer>
+    </section>
   );
 }

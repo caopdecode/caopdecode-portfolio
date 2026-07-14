@@ -1,1 +1,50 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0e12;
+  --color-panel: #12171c;
+  --color-panel-2: #1a2028;
+  --color-line: #232b33;
+  --color-fog: #8b98a5;
+  --color-paper: #e7ecef;
+  --color-signal: #2dd4bf;
+  --color-alert: #f5a623;
+
+  --font-display: "Bricolage Grotesque", "IBM Plex Sans", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+}
+
+* {
+  scrollbar-color: var(--color-line) var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

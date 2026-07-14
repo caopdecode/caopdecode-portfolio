@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Internal reference docs (not for the public repo)
+Portafolio_Auditoria_Cambios.md
+InsurSuite — Stack técnico.txt
+Reporte — Stack técnico.txt
+Vacualert — Stack técnico.txt

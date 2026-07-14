@@ -1,84 +1,130 @@
-import { motion} from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
-import { useEffect} from "react";
-import {
-  UserIcon,
-  BriefcaseIcon,
-  WrenchIcon,
-  MessageCircleIcon,
-} from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
+const NODES = [
+  { cx: 40, cy: 30 },
+  { cx: 140, cy: 70 },
+  { cx: 90, cy: 160 },
+  { cx: 190, cy: 190 },
+];
 
-
-const buttonStyles =
-  "group flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#EA30FF] text-[#232325] font-semibold hover:bg-[#30FF36] transition-colors duration-300 shadow-lg cursor-pointer";
-
-export default function Inicio({onEnter}) {
-    /*const { ref, inView } = useInView({ threshold: 0.3 });
-
-    useEffect(() => {
-        if (inView) {
-    console.log("SECCIÓN EN VISTA");
-    onEnter(); // cambia el fondo
-  }
-    }, [inView]); */
+export default function Inicio() {
+  const { t } = useLanguage();
 
   return (
-    <motion.section
-      //ref={ref} 
+    <section
       id="inicio"
-      className="h-screen w-full flex flex-col items-center justify-center text-white bg-[#F2F2F2]"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{once: false, amount: 0.3}}
+      className="relative h-screen w-full flex items-center text-paper bg-ink overflow-hidden px-6 sm:px-10 md:pl-32 pt-16"
     >
-      {/* Logo */}
-      <motion.div
-        className="mb-8 text-center"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
+      <svg
+        aria-hidden
+        viewBox="0 0 220 220"
+        className="hidden lg:block absolute right-16 top-1/2 -translate-y-1/2 w-72 h-72 opacity-70"
       >
-        <h1 className="text-5xl font-bold text-[#121212] sm:text-8xl">CAOPDECODE</h1>
-      </motion.div>
+        {[
+          [0, 1],
+          [1, 2],
+          [2, 3],
+        ].map(([a, b], i) => (
+          <motion.line
+            key={i}
+            x1={NODES[a].cx}
+            y1={NODES[a].cy}
+            x2={NODES[b].cx}
+            y2={NODES[b].cy}
+            stroke="#232B33"
+            strokeWidth="1"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1.5, delay: 0.3 + i * 0.2 }}
+          />
+        ))}
+        {NODES.map((n, i) => (
+          <motion.circle
+            key={i}
+            cx={n.cx}
+            cy={n.cy}
+            r="4"
+            fill="#2DD4BF"
+            initial={{ opacity: 0.3 }}
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{
+              duration: 2.4,
+              repeat: Infinity,
+              delay: i * 0.5,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </svg>
 
-      {/* Botones de navegación */}
-      <motion.div
-        className="grid grid-cols-4 sm:grid-cols-5 gap-1 items-center"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
+      <div className="relative z-10 max-w-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center gap-2 mb-6 font-mono text-sm text-fog"
         >
-        <div className="flex justify-center">
-            <ScrollLink to="about" smooth={true} duration={800} className={buttonStyles} title="About Me">
-                <UserIcon className="text-[#121212] group-hover:text-[#121212] transition-colors duration-300" />
-            </ScrollLink>
-        </div>
-        <div className="flex justify-center">
-            <ScrollLink to="projects" smooth={true} duration={800} className={buttonStyles} title="Projects">
-                 <BriefcaseIcon className="text-[#121212] group-hover:text-[#121212] transition-colors duration-300" />
-            </ScrollLink>
-        </div>
-        <div className="flex justify-center">
-            <ScrollLink to="skills" smooth={true} duration={800} className={buttonStyles} title="Skills">
-                <WrenchIcon className="text-[#121212] group-hover:text-[#121212] transition-colors duration-300" />
-            </ScrollLink>
-        </div>
-        <div className="flex justify-center">
-            <ScrollLink to="contact" smooth={true} duration={800} className={buttonStyles} title="Contact">
-                <MessageCircleIcon className="text-[#121212] group-hover:text-[#121212] transition-colors duration-300" />
-            </ScrollLink>
-        </div>
-        <div className="flex justify-center col-start-4 pr-5 sm:col-start-5">
-            <p className="text-[#121212] text-2xl sm:text-3xl font-semibold text-center align-self-center">
-            Portfolio
-            </p>
-        </div>
+          <motion.span
+            className="w-2 h-2 rounded-full bg-signal"
+            animate={{ opacity: [1, 0.3, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          {t.hero.status}
         </motion.div>
-    </motion.section>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="font-display font-semibold text-5xl sm:text-7xl text-paper leading-[1.05] mb-4"
+        >
+          {t.hero.name}
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="font-mono text-lg sm:text-xl text-signal mb-4"
+        >
+          {t.hero.role}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="text-fog text-base sm:text-lg max-w-md mb-10"
+        >
+          {t.hero.description}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="flex flex-wrap items-center gap-4"
+        >
+          <ScrollLink
+            to="projects"
+            smooth
+            duration={600}
+            className="px-6 py-3 rounded-lg bg-signal text-ink font-semibold text-sm hover:bg-paper transition-colors duration-300 cursor-pointer"
+          >
+            {t.hero.ctaPrimary}
+          </ScrollLink>
+          <ScrollLink
+            to="contact"
+            smooth
+            duration={600}
+            className="px-6 py-3 rounded-lg border border-line text-paper font-semibold text-sm hover:border-signal hover:text-signal transition-colors duration-300 cursor-pointer"
+          >
+            {t.hero.ctaSecondary}
+          </ScrollLink>
+        </motion.div>
+      </div>
+    </section>
   );
 }
