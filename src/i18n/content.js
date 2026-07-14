@@ -39,7 +39,7 @@ export const PROJECTS = [
     tech: ["JavaScript", "HTML5", "CSS3"],
     status: "live",
     link: "https://reparto-caopdecode.netlify.app",
-    images: null,
+    images: ["/ProjectsPics/reparto_1.webp"],
   },
 ];
 

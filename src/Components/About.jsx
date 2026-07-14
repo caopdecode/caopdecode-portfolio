@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import CamiloImg from "../assets/LinkdnProfile-noBg.png";
+import CamiloImg from "../assets/LinkdnProfile-noBg.jpg";
 import BackToTopButton from "./BackToTopButton";
 import { useLanguage } from "../i18n/LanguageContext";
 
