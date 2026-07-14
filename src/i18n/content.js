@@ -89,7 +89,7 @@ export const content = {
       name: "Camilo Osorio Páez",
       role: "Full Stack Developer & Automatización con IA",
       description:
-        "Construyo productos reales y automatizo procesos con inteligencia artificial generativa.",
+        "Construyo productos reales y automatizo procesos con inteligencia artificial generativa, dando siempre lo mejor de mí para crear soluciones con propósito.",
       ctaPrimary: "Ver proyectos",
       ctaSecondary: "Hablemos",
       signature: "caopdecode",
@@ -101,6 +101,7 @@ export const content = {
         "Full Stack Developer e Ingeniero Multimedia, enfocado en construir productos reales y automatizar procesos con inteligencia artificial generativa.",
         "He desarrollado InsurSuite, un SaaS multi-tenant para gestión de pólizas de seguros construido con NestJS, PostgreSQL y Next.js; VacuAlert, una herramienta que automatiza reportes de campañas de vacunación; y Reparto, una app de finanzas personales. También construyo automatizaciones con n8n, como un generador automático de certificados para la Cruz Roja Colombiana que redujo el procesamiento manual en ~70%.",
         "Aplico la suite de Claude (Claude Code, Claude Cowork) como parte activa de mi flujo de desarrollo, no como un experimento aparte.",
+        "Mi forma de trabajar es dar siempre lo mejor de mí: no me conformo con que algo funcione, busco construir soluciones con propósito, que resuelvan un problema real para quien las usa.",
       ],
       focusAreas: ["Producto real", "Automatización", "IA aplicada"],
       imageAlt: "Foto de perfil de Camilo Osorio Páez",
@@ -182,7 +183,7 @@ export const content = {
       name: "Camilo Osorio Páez",
       role: "Full Stack Developer & AI Automation",
       description:
-        "I build real products and automate processes with generative AI.",
+        "I build real products and automate processes with generative AI, always giving my best to create solutions with purpose.",
       ctaPrimary: "View projects",
       ctaSecondary: "Let's talk",
       signature: "caopdecode",
@@ -194,6 +195,7 @@ export const content = {
         "Full Stack Developer and Multimedia Engineer, focused on building real products and automating processes with generative AI.",
         "I've built InsurSuite, a multi-tenant SaaS for insurance policy management using NestJS, PostgreSQL and Next.js; VacuAlert, a tool that automates vaccination-campaign reporting; and Reparto, a personal finance app. I also build automations with n8n, including an automatic certificate generator for the Colombian Red Cross that cut manual processing by ~70%.",
         "I use the Claude suite (Claude Code, Claude Cowork) as an active part of my development workflow, not a side experiment.",
+        "My way of working is to always give my best: I don't settle for something that just works, I aim to build solutions with purpose, ones that solve a real problem for the people who use them.",
       ],
       focusAreas: ["Real product", "Automation", "Applied AI"],
       imageAlt: "Profile photo of Camilo Osorio Páez",
